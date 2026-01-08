@@ -280,11 +280,14 @@
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314370/IMG_8391_-_Anil_yzh6b3.jpg"
   },
   {
+    "_id": "66f5000000000000000000a1",
     "name": "Raghavendra",
     "year": 3,
     "category": "All-Rounder",
     "basePrice": 1.5,
     "status": "unsold",
+    "isCaptain": true,
+    "team": "66f10aa2a1b2c3d4e5f60112",
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314384/b23a047c-7e1f-4582-9ec2-7fb87ef2f4b5_-_Guguloth_Raghavendra_oq1yjo.jpg"
   },
   {
@@ -320,11 +323,14 @@
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314358/DSC_1642_-_sharathrathod_b4bpuh.jpg"
   },
   {
+    "_id": "66f5000000000000000000a2",
     "name": "Santhosh Kumar",
     "year": 3,
     "category": "Wicket-Keeper",
     "basePrice": 1.5,
     "status": "unsold",
+    "isCaptain": true,
+    "team": "66f10aa2a1b2c3d4e5f60114",
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314416/Screenshot_2025-09-30-12-24-13-506_com.whatsapp_-_Santhoshkumar_A_zobpwt.jpg"
   },
   {
@@ -360,19 +366,25 @@
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314404/IMG_20250930_163937_-_Sapavath_Jaswanth_mswksz.jpg"
   },
   {
+    "_id": "66f5000000000000000000a3",
     "name": "Gowtham Nayak",
     "year": 3,
     "category": "All-Rounder",
     "basePrice": 1.5,
     "status": "unsold",
+    "isCaptain": true,
+    "team": "66f10aa2a1b2c3d4e5f60113",
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314395/IMG_3883_-_Gowtham_fdbmsp.jpg"
   },
   {
+    "_id": "66f5000000000000000000a4",
     "name": "Ram Charan",
     "year": 3,
     "category": "All-Rounder",
     "basePrice": 1.5,
     "status": "unsold",
+    "isCaptain": true,
+    "team": "66f10aa2a1b2c3d4e5f60111",
     "image": "https://res.cloudinary.com/dw3lm8vql/image/upload/v1759314360/IMG_4681_-_ramcharan_qhcxeo.jpg"
   },
   {

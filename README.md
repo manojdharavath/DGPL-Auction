@@ -1,6 +1,6 @@
 # DGPL Auction - Real-Time Player Auction Platform
 
-🔗 **[Live Demo](https://dgpl-auction.com)** <!-- Replace with your actual live URL -->
+🔗 **[Live Demo](https://dgpl-auction.tech)** <!-- Replace with your actual live URL -->
 
 ## Introduction
 
@@ -16,18 +16,25 @@ Built to solve a real-world problem, this application transforms the auction exp
 
 ### Live Auction View
 
-![Live Auction](./screenshots/live-auction.png)
+![Live Auction](./screenshots/LiveAuction.jpeg)
 _Real-time bidding interface with live updates_
 
 ### Auction Summary Dashboard
 
-![Auction Summary](./screenshots/auction-summary.png)
-_Comprehensive dashboard showing team rosters and recent bids_
+![Auction Summary](./screenshots/AuctionSummary.png)
+_Comprehensive dashboard showing recent bids_
 
 ### Admin Panel
 
-![Admin Panel](./screenshots/admin-panel.png)
+![Admin Panel](./screenshots/AdminControlPanel.png)
 _Powerful admin controls for managing the auction flow_
+
+---
+
+### Team Roster
+
+![Team Roster](./screenshots/TeamProfile.png)
+_Team Roster showing breakdown and each player in it._
 
 ---
 
@@ -278,8 +285,8 @@ For questions, suggestions, or contributions:
 
 ## 🔗 Links
 
-- [Live Demo](https://your-live-url-here.com)
-- [Backend API Docs](https://your-backend-domain.com/api-docs)
+- [Live Demo](https://dgpl-auction.tech)
+
 - [Project Repository](https://github.com/vvc723/DGPL-Auction)
 
 ---
