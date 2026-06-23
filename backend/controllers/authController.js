@@ -18,7 +18,7 @@ exports.signin = catchAsync(async (req, res, next) => {
   }
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRESIN,
+    expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
   user.password = undefined; // hide password in response
