@@ -24,41 +24,37 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-10">
-      <div className="w-full max-w-md bg-gray-800/90 backdrop-blur rounded-2xl shadow-2xl border border-gray-700/70 p-8 relative overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl" />
-
-        {/* Back icon button (absolute, does not affect heading layout) */}
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#0f172a] px-4 py-10">
+      <div className="w-full max-w-md bg-[#1f2937] rounded-2xl shadow-xl border border-gray-700/60 p-8 relative overflow-hidden">
+        {/* Back icon button */}
         <button
           type="button"
           onClick={() => navigate("/")}
           aria-label="Back"
-          style={{ backgroundColor: "#ffffff", color: "#111111" }}
-          className="absolute top-4 left-4 px-4 h-9 inline-flex items-center justify-center rounded-full text-sm font-semibold border border-gray-300 shadow-md hover:bg-gray-50 hover:shadow-lg transition focus:outline-none focus:ring-2 focus:ring-yellow-400/60 focus:ring-offset-1 focus:ring-offset-gray-800"
+          className="absolute top-4 left-4 px-3.5 py-1.5 inline-flex items-center justify-center rounded-xl text-xs font-bold bg-black text-white border border-gray-700 shadow hover:bg-gray-900 transition"
         >
-          Back
+          ← Back
         </button>
 
-        <h1 className="mt-10 text-2xl sm:text-3xl font-extrabold text-white tracking-wide mb-6 text-center font-brand">
+        <h1 className="mt-8 text-2xl sm:text-3xl font-extrabold text-white tracking-wide mb-4 text-center font-brand">
           Welcome Back
         </h1>
         <div className="mb-4">
-          <div className="w-full text-center text-xs font-semibold text-yellow-300 bg-gray-900/80 rounded-lg px-3 py-2 border border-yellow-400/40">
-            Note: Only <span className="text-yellow-400">captains</span> and{" "}
-            <span className="text-yellow-400">admin</span> can login.
+          <div className="w-full text-center text-xs font-semibold text-gray-300 bg-gray-900 rounded-xl px-3 py-2 border border-gray-700">
+            Note: Only <span className="text-[#facc15] font-bold">captains</span> and{" "}
+            <span className="text-[#facc15] font-bold">admin</span> can login.
           </div>
         </div>
-        <p className="text-sm text-gray-400 text-center mb-8">
+        <p className="text-sm text-gray-300 text-center mb-8 font-medium">
           Sign in to continue to{" "}
-          <span className="text-yellow-400 font-semibold">DGPL Auction</span>
+          <span className="text-white font-bold">DGPL Auction</span>
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-          <div className="space-y-2">
+        <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
+          <div className="space-y-1.5">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-300 tracking-wide"
+              className="block text-xs font-bold text-gray-300 uppercase tracking-wider"
             >
               Email
             </label>
@@ -69,15 +65,15 @@ const LoginPage = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg bg-gray-900/70 border border-gray-700 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/40 text-gray-100 px-4 py-2.5 text-sm placeholder-gray-500 outline-none transition"
+              className="w-full rounded-xl bg-gray-900 border border-gray-700 focus:border-[#facc15] focus:ring-2 focus:ring-[#facc15]/50 text-white px-4 py-2.5 text-sm placeholder-gray-500 outline-none transition shadow-sm"
               placeholder="you@example.com"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-300 tracking-wide"
+              className="block text-xs font-bold text-gray-300 uppercase tracking-wider"
             >
               Password
             </label>
@@ -88,14 +84,14 @@ const LoginPage = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg bg-gray-900/70 border border-gray-700 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/40 text-gray-100 px-4 py-2.5 text-sm placeholder-gray-500 outline-none transition"
+              className="w-full rounded-xl bg-gray-900 border border-gray-700 focus:border-[#facc15] focus:ring-2 focus:ring-[#facc15]/50 text-white px-4 py-2.5 text-sm placeholder-gray-500 outline-none transition shadow-sm"
               placeholder="••••••••"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-gray-900 font-bold tracking-wide py-2.5 rounded-lg shadow-lg shadow-yellow-500/25 hover:shadow-yellow-400/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition"
+            className="w-full bg-[#facc15] text-black font-extrabold tracking-wide py-2.5 rounded-xl shadow hover:bg-[#eab308] transition"
           >
             Login
           </button>

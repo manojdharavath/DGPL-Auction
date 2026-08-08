@@ -4,7 +4,7 @@ const SummaryFilter = ({ teams = [], selectedTeamId, onChange }) => {
   return (
     <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div className="max-w-xs w-full">
-        <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+        <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
           Team Filter
         </label>
         <div className="relative">
@@ -15,16 +15,16 @@ const SummaryFilter = ({ teams = [], selectedTeamId, onChange }) => {
                 : ""
             }
             onChange={(e) => onChange(e.target.value || null)}
-            className="w-full appearance-none bg-gray-800/70 border border-gray-700 text-gray-200 text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 focus:border-yellow-400 transition-colors pr-10"
+            className="w-full appearance-none bg-[#4b5563] text-white text-sm font-medium rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#facc15] transition-colors pr-10 shadow-sm"
           >
-            <option value="">Select Team</option>
+            <option value="" className="bg-[#374151] text-white">Select Team</option>
             {teams.map((team) => (
-              <option key={team._id} value={team._id}>
+              <option key={team._id} value={team._id} className="bg-[#374151] text-white">
                 {team.name}
               </option>
             ))}
           </select>
-          <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-400">
+          <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-300">
             ▼
           </span>
         </div>
@@ -33,10 +33,10 @@ const SummaryFilter = ({ teams = [], selectedTeamId, onChange }) => {
         <button
           type="button"
           onClick={() => onChange(null)}
-          className={`px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-colors border ${
+          className={`px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all ${
             selectedTeamId === null
-              ? "bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-gray-900 font-semibold border-yellow-400 shadow shadow-yellow-500/30"
-              : "!bg-black !text-white !border-gray-700 hover:!bg-gray-800"
+              ? "bg-[#facc15] text-black font-extrabold shadow-md"
+              : "bg-black text-white hover:bg-gray-900"
           }`}
         >
           Recently Sold
@@ -44,10 +44,10 @@ const SummaryFilter = ({ teams = [], selectedTeamId, onChange }) => {
         <button
           type="button"
           onClick={() => onChange("available")}
-          className={`px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-colors border ${
+          className={`px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all ${
             selectedTeamId === "available"
-              ? "bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-gray-900 font-semibold border-yellow-400 shadow shadow-yellow-500/30"
-              : "!bg-black !text-white !border-gray-700 hover:!bg-gray-800"
+              ? "bg-[#facc15] text-black font-extrabold shadow-md"
+              : "bg-black text-white hover:bg-gray-900"
           }`}
         >
           Available Players

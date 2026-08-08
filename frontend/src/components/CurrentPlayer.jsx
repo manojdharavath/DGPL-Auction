@@ -61,14 +61,14 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
   if (loading) return <CurrentPlayerSkeleton />; // still show skeleton during initial mount
   if (error)
     return (
-      <div className="bg-gray-800 text-gray-300 rounded-xl shadow-lg p-6">
-        <p className="text-center text-red-400">{error}</p>
+      <div className="bg-[#1e293b] text-white rounded-2xl shadow-xl p-8 border border-red-500/40">
+        <p className="text-center text-red-400 font-semibold">{error}</p>
       </div>
     );
   if (!player)
     return (
-      <div className="bg-gray-800 text-gray-300 rounded-xl shadow-lg p-6">
-        <p className="text-center">Waiting for the next player...</p>
+      <div className="bg-[#1e293b] text-white rounded-2xl shadow-xl p-8 border border-[#334155]">
+        <p className="text-center font-semibold text-[#94a3b8] animate-pulse">Waiting for the next player...</p>
       </div>
     );
 
@@ -165,16 +165,16 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
   }
 
   return (
-    <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden max-w-md w-full border border-gray-700">
+    <div className="bg-[#1f2937] rounded-2xl shadow-xl overflow-hidden max-w-md w-full border border-gray-700/60">
       {/* Bid error listener registration */}
       {socket && <BidErrorListener socket={socket} />}
       {/* Player Image */}
       {image && (
-        <div className="aspect-[3/4] w-full overflow-hidden bg-gray-700">
+        <div className="aspect-[3/4] w-full overflow-hidden bg-gray-900 border-b border-gray-700/60">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
@@ -182,33 +182,35 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
 
       <div className="p-6 space-y-5">
         {/* Meta */}
-        <div className="text-sm font-medium tracking-wide text-yellow-400 flex items-center gap-2">
-          <span className="uppercase">{category}</span>
+        <div className="text-sm font-semibold tracking-wider text-gray-300 flex items-center gap-2">
+          <span className="uppercase px-2.5 py-0.5 rounded-full bg-gray-800 border border-gray-700 text-white text-xs font-bold">
+            {category}
+          </span>
           {year && <span className="text-gray-500">•</span>}
           {year && (
-            <span className="text-yellow-300 normal-case">
+            <span className="text-gray-300 text-xs font-medium">
               {formatAcademicYear(year)}
             </span>
           )}
         </div>
 
         {/* Name */}
-        <h2 className="text-3xl font-extrabold text-white leading-tight drop-shadow-sm">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
           {name}
         </h2>
 
         {/* Current Bid Section */}
-        <div className="bg-gray-900/60 rounded-xl p-5 border border-gray-700 backdrop-blur-sm">
-          <h3 className="text-sm uppercase tracking-wider text-gray-400 font-semibold mb-2">
+        <div className="bg-[#111827] rounded-xl p-4 sm:p-5 border border-gray-700/60">
+          <h3 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1.5">
             Current Bid
           </h3>
           <div className="flex items-end gap-4 flex-wrap">
-            <span className="flex items-baseline gap-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 drop-shadow">
-              <span className="text-4xl font-black leading-none">
+            <span className="flex items-baseline gap-1 text-white">
+              <span className="text-3xl sm:text-4xl font-black leading-none text-[#34d399]">
                 {currentBid != null ? currentBid : "--"}
               </span>
               {currentBid != null && (
-                <span className="text-xl font-extrabold tracking-wide opacity-90">
+                <span className="text-lg font-bold tracking-wide text-[#10b981]">
                   Pts
                 </span>
               )}
@@ -217,7 +219,7 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
               <span className="text-xs font-semibold text-gray-400 uppercase">
                 Leading Team
               </span>
-              <span className="text-base font-semibold text-yellow-300">
+              <span className="text-base font-bold text-white">
                 {leadingTeamName || "—"}
               </span>
             </div>
@@ -227,8 +229,8 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                   Your Budget
                 </span>
                 <span
-                  className={`text-sm font-semibold ${
-                    isOutOfBudget ? "text-red-400" : "text-green-300"
+                  className={`text-sm font-bold ${
+                    isOutOfBudget ? "text-red-400" : "text-[#34d399]"
                   }`}
                 >
                   {typeof userTeamBudget === "number"
@@ -242,31 +244,31 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
 
         {/* Bid History */}
         <div>
-          <h3 className="text-sm uppercase tracking-wider text-gray-400 font-semibold mb-3">
+          <h3 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2.5">
             Bid History
           </h3>
           {sortedBids.length === 0 && (
-            <p className="text-gray-500 text-sm italic">No bids yet.</p>
+            <p className="text-gray-400 text-sm italic">No bids yet.</p>
           )}
-          <ul className="space-y-2 max-h-64 overflow-y-auto pr-1 custom-scroll">
+          <ul className="space-y-2 max-h-56 overflow-y-auto pr-1 custom-scroll">
             {sortedBids.map((bid, index) => {
               const isLatest = index === 0;
               return (
                 <li
                   key={bid._id || bid.timestamp}
-                  className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors border ${
+                  className={`flex items-center justify-between rounded-xl px-3.5 py-2 text-sm font-medium transition-colors border ${
                     isLatest
-                      ? "bg-yellow-500/15 border-yellow-400/40 shadow-inner"
-                      : "bg-gray-900/40 border-gray-700 hover:bg-gray-900/70"
+                      ? "bg-gray-800 border-gray-600 text-white"
+                      : "bg-[#111827] border-gray-800 text-gray-300 hover:bg-gray-800"
                   }`}
                 >
-                  <span className="text-gray-200 flex items-center gap-2">
+                  <span className="text-white flex items-center gap-2 font-semibold">
                     {isLatest && (
-                      <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                      <span className="inline-block w-2 h-2 bg-[#34d399] rounded-full animate-pulse shadow-sm" />
                     )}
                     {bid.teamName || "Unknown Team"}
                   </span>
-                  <span className="text-yellow-300 font-semibold flex items-baseline gap-1">
+                  <span className="text-[#34d399] font-bold flex items-baseline gap-1">
                     <span>{bid.bidAmount}</span>
                     <span className="text-xs font-bold tracking-wide opacity-80">
                       Pts
@@ -279,10 +281,10 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
         </div>
 
         {isTeamOwner && (
-          <div className="pt-4">
+          <div className="pt-2">
             <div className="relative">
               {isOutOfBudget && (
-                <div className="absolute -top-6 left-0 w-full text-center text-xs font-semibold text-red-500">
+                <div className="absolute -top-5 left-0 w-full text-center text-xs font-semibold text-red-400">
                   Out of budget
                 </div>
               )}
@@ -291,21 +293,17 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                   !isLeadingTeam && !isOutOfBudget ? handleBid : undefined
                 }
                 disabled={isLeadingTeam || isOutOfBudget}
-                className={`relative w-full py-4 rounded-2xl font-extrabold text-gray-900 text-xl flex items-center justify-center gap-5 overflow-hidden border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.97]
+                className={`relative w-full py-3 px-5 rounded-xl font-extrabold text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-200 focus:outline-none shadow active:scale-[0.98]
                 ${
                   isLeadingTeam
-                    ? "bg-gradient-to-r from-yellow-200 via-amber-200 to-yellow-300 border-amber-300/70 cursor-not-allowed shadow-inner shadow-amber-400/20 focus:ring-amber-300/50 text-gray-800"
+                    ? "bg-gray-800 text-gray-400 cursor-not-allowed border border-gray-700"
                     : isOutOfBudget
-                    ? "bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 border-gray-300 cursor-not-allowed text-gray-700"
-                    : "bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 border-amber-300/60 shadow-lg shadow-amber-500/40 hover:shadow-amber-500/60 hover:brightness-110 focus:ring-amber-400/70"
+                    ? "bg-gray-900 text-gray-500 cursor-not-allowed border border-gray-800"
+                    : "bg-[#facc15] text-black hover:bg-[#eab308] shadow-md"
                 }`}
                 type="button"
               >
-                <span
-                  className={`tracking-wide leading-none font-black text-[1.7rem] drop-shadow-sm ${
-                    isLeadingTeam ? "text-black" : ""
-                  }`}
-                >
+                <span className="tracking-wide">
                   {isLeadingTeam
                     ? "Leading"
                     : isOutOfBudget
@@ -314,25 +312,15 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                 </span>
                 {!isLeadingTeam && nextBidAmount && (
                   <span
-                    className={`relative flex items-center gap-2 px-5 py-2 rounded-xl border shadow-md shadow-amber-700/20 before:absolute before:inset-0 before:rounded-xl before:p-px before:content-[''] before:-z-0 overflow-hidden ${
+                    className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm font-extrabold shadow-sm ${
                       isOutOfBudget
-                        ? "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 border-gray-300 before:bg-gradient-to-r before:from-gray-200/60 before:to-gray-300/60 text-gray-700"
-                        : "bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-300 border-amber-400/60 before:bg-gradient-to-r before:from-amber-300/60 before:to-yellow-400/60 text-black/85"
+                        ? "bg-gray-800 text-gray-500"
+                        : "bg-black text-white"
                     }`}
                   >
-                    <span className="relative z-10 flex items-end gap-1 leading-none">
-                      <span className="text-[1.15rem] font-black tracking-tight">
-                        {nextBidAmount}
-                      </span>
-                      <span className="text-base font-extrabold opacity-75 translate-y-[1px]">
-                        Pts
-                      </span>
-                    </span>
+                    <span>{nextBidAmount}</span>
+                    <span className="text-xs font-bold text-gray-300">Pts</span>
                   </span>
-                )}
-                {/* subtle animated sheen */}
-                {!isLeadingTeam && !isOutOfBudget && (
-                  <span className="pointer-events-none absolute -left-10 top-0 h-full w-1/3 bg-gradient-to-r from-white/20 via-white/40 to-transparent skew-x-[-25deg] animate-[shine_3s_linear_infinite] mix-blend-overlay" />
                 )}
               </button>
             </div>

@@ -15,39 +15,39 @@ function Header() {
   };
   const firstName = user?.name ? user.name.split(" ")[0] : "User";
   return (
-    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 p-3 sm:p-4 flex items-start justify-between sm:items-center shadow-lg sm:sticky sm:top-0 z-50 border-b-2 border-blue-500 rounded-b-2xl">
+    <header className="bg-[#1d4ed8] p-3 sm:p-4 flex items-center justify-between shadow-md sm:sticky sm:top-0 z-50">
       {/* Title */}
-      <h1 className="font-brand text-white text-xl xs:text-2xl sm:text-3xl font-extrabold tracking-wide drop-shadow-lg select-none leading-tight mr-4">
-        🏏 DGPL <span className="text-yellow-400">AUCTION</span>
+      <h1 className="font-brand text-white text-xl xs:text-2xl sm:text-3xl font-black tracking-wide select-none leading-tight mr-4 cursor-pointer" onClick={() => navigate("/")}>
+        🏏 DGPL <span className="text-[#facc15]">AUCTION</span>
       </h1>
       {/* Right side */}
       {isAuthenticated ? (
-        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
           {/* Desktop welcome line */}
-          <span className="hidden sm:inline text-sm font-medium text-blue-100 truncate max-w-[240px]">
+          <span className="hidden sm:inline text-sm font-medium text-white truncate max-w-[280px]">
             Welcome,{" "}
-            <span className="text-yellow-300 font-bold text-base sm:text-lg">
+            <span className="text-[#facc15] font-bold text-base">
               {user?.name || "User"}
             </span>
           </span>
           {user?.role === "admin" && (
             <button
               onClick={() => navigate(isOnAdmin ? "/" : "/admin")}
-              className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-gray-900 font-semibold py-1.5 sm:py-2 px-4 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg hover:brightness-105 transition text-xs sm:text-sm border border-yellow-300"
+              className="bg-black text-white font-bold py-2 px-4 rounded-xl shadow hover:bg-gray-900 transition text-xs sm:text-sm"
               type="button"
             >
-              {isOnAdmin ? "Auction" : "Admin Control Panel"}
+              {isOnAdmin ? "Auction" : "Admin Panel"}
             </button>
           )}
           <div className="flex flex-col items-center sm:items-end">
             <button
               onClick={handleLogout}
-              className="bg-black text-white font-bold py-1.5 sm:py-2 px-5 sm:px-6 rounded-lg sm:rounded-xl hover:bg-gray-800 hover:shadow-lg transition-all duration-300 text-xs sm:text-sm transform hover:scale-105 btn-solid-login"
+              className="bg-black text-white font-bold py-2 px-4 rounded-xl shadow hover:bg-gray-900 transition text-xs sm:text-sm"
             >
               Logout
             </button>
             {/* Mobile name under logout */}
-            <span className="sm:hidden mt-1.5 text-base font-bold text-yellow-300 leading-tight tracking-wide text-center">
+            <span className="sm:hidden mt-1 text-xs font-bold text-[#facc15] leading-tight tracking-wide text-center">
               {firstName}
             </span>
           </div>
@@ -56,7 +56,7 @@ function Header() {
         <div className="flex justify-end w-auto">
           <button
             onClick={() => navigate("/login")}
-            className="bg-black text-white font-bold py-1.5 sm:py-2 px-5 sm:px-6 rounded-lg sm:rounded-xl hover:bg-gray-800 hover:shadow-lg transition-all duration-300 ease-in-out text-xs sm:text-sm transform hover:scale-105 btn-solid-login"
+            className="bg-black text-white font-bold py-2 px-4 rounded-xl shadow hover:bg-gray-900 transition text-xs sm:text-sm"
           >
             Login
           </button>

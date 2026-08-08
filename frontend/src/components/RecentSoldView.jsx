@@ -27,53 +27,53 @@ const RecentSoldView = ({ soldPlayers = [], teamMap }) => {
           return (
             <div
               key={player._id}
-              className={`relative w-full flex items-center gap-5 bg-gradient-to-r from-gray-800/85 to-gray-900/85 border rounded-2xl p-4 transition-all duration-300 ${
+              className={`relative w-full flex items-center gap-4 sm:gap-5 bg-[#374151] border rounded-2xl p-4 transition-all duration-200 shadow-md ${
                 isCaptain
-                  ? "border-yellow-500/70 hover:border-yellow-400 hover:shadow-yellow-500/10"
-                  : "border-gray-700 hover:border-emerald-500/60 hover:shadow-emerald-500/10"
+                  ? "border-[#facc15] ring-1 ring-[#facc15]"
+                  : "border-gray-700/60 hover:border-gray-500"
               }`}
             >
               {isCaptain && (
-                <span className="absolute -top-3 -left-3 bg-yellow-500 text-gray-900 text-xs font-extrabold px-2 py-1 rounded-full shadow shadow-yellow-500/30">
+                <span className="absolute -top-3 -left-3 bg-[#facc15] text-black border border-black text-xs font-black px-2.5 py-0.5 rounded-full shadow-md">
                   C
                 </span>
               )}
               <Link
                 to={`/player/${player._id}`}
-                className="w-16 h-24 rounded-lg overflow-hidden bg-gray-700 flex-shrink-0 ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="w-16 h-24 rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 ring-1 ring-gray-700 focus:outline-none focus:ring-2 focus:ring-[#60a5fa]"
               >
                 <img
                   src={player.image}
                   alt={player.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"
                 />
               </Link>
               <div className="flex-1 min-w-0">
-                <h4 className="text-base sm:text-lg font-semibold text-white truncate tracking-wide">
+                <h4 className="text-base sm:text-lg font-bold truncate tracking-wide">
                   <Link
                     to={`/player/${player._id}`}
-                    className="hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-sm"
+                    className="text-[#60a5fa] hover:text-[#93c5fd] focus:outline-none rounded-sm"
                   >
                     {player.name}
                   </Link>
                 </h4>
                 <div className="text-xs sm:text-sm text-gray-300 mt-1 flex flex-wrap gap-2 leading-relaxed">
-                  <span className="text-yellow-400 font-semibold tracking-wide">
+                  <span className="text-white font-bold uppercase tracking-wider text-[11px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700">
                     {player.category}
                   </span>
                   {player.year && (
                     <>
-                      <span className="text-gray-600">•</span>
-                      <span className="text-gray-200 font-medium">
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-300 font-medium">
                         {formatAcademicYear(player.year)}
                       </span>
                     </>
                   )}
                   {teamName && (
                     <>
-                      <span className="text-gray-600">•</span>
-                      <span className="text-gray-300 font-medium">
+                      <span className="text-gray-500">•</span>
+                      <span className="text-gray-200 font-semibold">
                         {teamName}
                       </span>
                     </>
@@ -83,20 +83,20 @@ const RecentSoldView = ({ soldPlayers = [], teamMap }) => {
               <div className="text-right flex flex-col items-end">
                 {isCaptain ? (
                   <>
-                    <span className="text-xs sm:text-sm font-semibold text-yellow-400 tracking-wide">
+                    <span className="text-xs sm:text-sm font-bold text-[#facc15] tracking-wide">
                       Captain
                     </span>
-                    <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-yellow-500/70 font-semibold tracking-wider">
+                    <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-gray-400 font-semibold tracking-wider">
                       Retained
                     </span>
                   </>
                 ) : (
                   <>
-                    <span className="text-lg sm:text-xl font-extrabold text-emerald-400 tracking-wide">
+                    <span className="text-lg sm:text-xl font-black text-[#34d399] tracking-wide">
                       {formatPts(player.finalBidPrice)}
                     </span>
-                    <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-emerald-500/70 font-semibold tracking-wider">
-                      Bid
+                    <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-[#10b981] font-extrabold tracking-wider">
+                      BID
                     </span>
                   </>
                 )}

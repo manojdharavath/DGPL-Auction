@@ -256,7 +256,7 @@ function App() {
   }, [currentPlayer]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-[#0f172a] text-[#ffffff]">
       {/* Toast Container */}
       {toasts.length > 0 && (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-3 items-center w-full max-w-md px-4">

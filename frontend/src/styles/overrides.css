@@ -1,8 +1,14 @@
-/* Solid overrides to avoid color-function/OKLCH issues across browsers */
+/* Simple Dark Blue & White button overrides */
 .btn-solid-login {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border: 1px solid #2563eb !important;
+  font-weight: 600 !important;
 }
 .btn-solid-login:hover {
-  background-color: #1f2937 !important; /* gray-800 */
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
 }
+

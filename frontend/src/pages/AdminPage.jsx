@@ -295,7 +295,7 @@ export default function AdminPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-extrabold mb-8 text-blue-900 drop-shadow-sm tracking-wide">
+      <h1 className="text-3xl font-black mb-8 text-white tracking-wide">
         Admin Control Panel
       </h1>
 
@@ -306,19 +306,19 @@ export default function AdminPage() {
       />
 
       {selectedYear == null && (
-        <p className="text-gray-600">
+        <p className="text-[#94a3b8] font-medium">
           Select a year to view available players.
         </p>
       )}
 
       {loading && (
-        <p className="text-gray-500 animate-pulse">Loading players...</p>
+        <p className="text-[#94a3b8] font-medium animate-pulse">Loading players...</p>
       )}
 
-      {error && <div className="text-red-600 mb-4">{error}</div>}
+      {error && <div className="text-red-400 font-semibold mb-4">{error}</div>}
 
       {auctionMessage && (
-        <div className="mb-4 text-sm text-indigo-700 bg-indigo-50 px-3 py-2 rounded border border-indigo-200">
+        <div className="mb-6 text-sm text-white bg-[#1f2937] px-4 py-3 rounded-xl border border-gray-700/60 font-bold shadow-md">
           {auctionMessage}
         </div>
       )}
@@ -327,7 +327,7 @@ export default function AdminPage() {
         !error &&
         selectedYear != null &&
         players.filter((p) => p.status !== "sold").length === 0 && (
-          <p className="text-gray-600">No available players for this year.</p>
+          <p className="text-[#94a3b8] font-medium">No available players for this year.</p>
         )}
 
       {!loading &&

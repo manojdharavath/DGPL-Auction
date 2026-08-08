@@ -49,8 +49,8 @@ const PlayerProfilePage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-        <div className="text-gray-400 text-sm animate-pulse">
+      <div className="min-h-screen bg-[#061838] flex items-center justify-center px-4">
+        <div className="text-[#90CAF9] text-sm font-semibold animate-pulse">
           Loading player...
         </div>
       </div>
@@ -59,11 +59,11 @@ const PlayerProfilePage = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 gap-4">
-        <p className="text-red-400 text-sm">{error}</p>
+      <div className="min-h-screen bg-[#061838] flex flex-col items-center justify-center px-4 gap-4">
+        <p className="text-red-400 text-sm font-semibold">{error}</p>
         <Link
           to="/"
-          className="text-xs font-semibold text-yellow-300 hover:text-yellow-200 underline"
+          className="text-xs font-bold text-[#90CAF9] hover:text-[#E3F2FD] underline"
         >
           Back to Auction
         </Link>
@@ -73,11 +73,11 @@ const PlayerProfilePage = () => {
 
   if (!player) {
     return (
-      <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 gap-4">
-        <p className="text-gray-400 text-sm">Player not found.</p>
+      <div className="min-h-screen bg-[#061838] flex flex-col items-center justify-center px-4 gap-4">
+        <p className="text-[#90CAF9] text-sm font-semibold">Player not found.</p>
         <Link
           to="/"
-          className="text-xs font-semibold text-yellow-300 hover:text-yellow-200 underline"
+          className="text-xs font-bold text-[#90CAF9] hover:text-[#E3F2FD] underline"
         >
           Back to Auction
         </Link>
@@ -111,38 +111,38 @@ const PlayerProfilePage = () => {
   const isRetained = !!isCaptain; // treat every captain as retained regardless of status field
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-[#0f172a] text-white">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-6 flex items-center justify-between">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-yellow-900 bg-gradient-to-r from-yellow-300 via-amber-300 to-yellow-400 px-3 py-1.5 rounded-lg shadow shadow-yellow-500/30 border border-yellow-400/60 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold text-white bg-black px-3.5 py-1.5 rounded-xl shadow-sm border border-gray-700 hover:bg-gray-900 transition-all"
           >
-            <span className="text-lg leading-none">←</span>
+            <span className="text-base leading-none">←</span>
             <span>Back</span>
           </Link>
           {wasSold && !isRetained && (
-            <div className="text-sm font-semibold text-green-400 bg-green-900/30 rounded-full px-4 py-1 border border-green-500/30 flex items-baseline gap-1">
+            <div className="text-xs font-bold text-gray-300 bg-[#1f2937] rounded-full px-4 py-1 border border-gray-700 flex items-baseline gap-1.5 shadow-sm">
               <span>Sold for</span>
-              <span className="font-bold text-yellow-300 text-base">
+              <span className="font-black text-[#34d399] text-sm">
                 {finalBidPrice}
               </span>
-              <span className="text-[10px] font-bold tracking-wide opacity-80">
+              <span className="text-[10px] font-bold tracking-wide text-[#10b981]">
                 Pts
               </span>
             </div>
           )}
           {isRetained && (
-            <div className="text-sm font-semibold text-yellow-300 bg-yellow-900/20 rounded-full px-4 py-1 border border-yellow-500/30 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+            <div className="text-xs font-bold text-[#facc15] bg-[#1f2937] rounded-full px-4 py-1 border border-gray-700 flex items-center gap-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
               <span>Retained Captain</span>
             </div>
           )}
         </div>
 
-        <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-700 flex flex-col md:flex-row">
+        <div className="bg-[#1f2937] rounded-2xl shadow-xl overflow-hidden border border-gray-700/60 flex flex-col md:flex-row">
           {image && (
-            <div className="md:w-1/4 w-full bg-gray-700 aspect-[3/4] md:aspect-auto overflow-hidden max-h-80 md:max-h-none md:self-start">
+            <div className="md:w-1/3 w-full bg-gray-900 aspect-[3/4] md:aspect-auto overflow-hidden max-h-80 md:max-h-none md:self-start border-b md:border-b-0 md:border-r border-gray-700/60">
               <img
                 src={image}
                 alt={name}
@@ -151,17 +151,19 @@ const PlayerProfilePage = () => {
               />
             </div>
           )}
-          <div className="flex-1 p-6 space-y-6">
+          <div className="flex-1 p-6 sm:p-8 space-y-6">
             <div className="flex items-start justify-between flex-wrap gap-4">
               <div>
-                <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-white mb-2">
+                <h1 className="text-3xl md:text-4xl font-black leading-tight text-[#60a5fa] mb-2">
                   {name}
                 </h1>
-                <div className="flex items-center gap-3 text-sm font-medium tracking-wide text-yellow-400">
-                  <span className="uppercase">{category}</span>
+                <div className="flex items-center gap-3 text-sm font-semibold tracking-wide text-gray-300">
+                  <span className="uppercase px-2.5 py-0.5 rounded-full bg-gray-800 border border-gray-700 text-white text-xs font-bold">
+                    {category}
+                  </span>
                   {year && <span className="text-gray-500">•</span>}
                   {year && (
-                    <span className="text-yellow-300 normal-case">
+                    <span className="text-gray-300 text-xs">
                       {formatAcademicYear(year)}
                     </span>
                   )}
@@ -170,32 +172,31 @@ const PlayerProfilePage = () => {
               <div className="flex flex-col items-end gap-2">
                 {!isRetained && (
                   <span
-                    className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                    className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
                       status === "in_auction"
-                        ? "border-amber-400/40 text-amber-300 bg-amber-400/10"
+                        ? "border-[#facc15] text-[#facc15] bg-[#facc15]/10"
                         : status === "sold"
-                        ? "border-green-400/40 text-green-300 bg-green-400/10"
-                        : "border-gray-400/30 text-gray-300 bg-gray-400/10"
+                        ? "border-emerald-500/50 text-emerald-400 bg-emerald-500/10"
+                        : "border-gray-700 text-gray-400 bg-gray-900"
                     }`}
                   >
                     {status?.replace(/_/g, " ")}
                   </span>
                 )}
                 {wasSold && (
-                  <div className="text-sm font-semibold text-yellow-300">
-                    Winner: {leadingTeamName || "Unknown Team"}
+                  <div className="text-sm font-bold text-gray-300">
+                    Winner: <span className="text-white font-bold">{leadingTeamName || "Unknown Team"}</span>
                   </div>
                 )}
-                {/* Removed duplicate retained text line; badge above is sufficient */}
               </div>
             </div>
 
-            <div className="bg-gray-900/60 rounded-xl p-5 border border-gray-700 backdrop-blur-sm">
-              <h3 className="text-sm uppercase tracking-wider text-gray-400 font-semibold mb-3">
+            <div className="bg-[#111827] rounded-xl p-5 border border-gray-700/60">
+              <h3 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-3">
                 Bid History
               </h3>
               {sortedBids.length === 0 ? (
-                <p className="text-gray-500 text-sm italic">No bids placed.</p>
+                <p className="text-gray-400 text-sm italic">No bids placed.</p>
               ) : (
                 <ul className="space-y-2 max-h-80 overflow-y-auto pr-1 custom-scroll">
                   {sortedBids.map((bid, index) => {
@@ -203,19 +204,19 @@ const PlayerProfilePage = () => {
                     return (
                       <li
                         key={bid._id || bid.timestamp}
-                        className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors border ${
+                        className={`flex items-center justify-between rounded-xl px-3.5 py-2 text-sm font-medium transition-colors border ${
                           isLatest
-                            ? "bg-yellow-500/15 border-yellow-400/40 shadow-inner"
-                            : "bg-gray-900/40 border-gray-700 hover:bg-gray-900/70"
+                            ? "bg-gray-800 border-gray-600 text-white"
+                            : "bg-[#111827] border-gray-800 text-gray-300 hover:bg-gray-800"
                         }`}
                       >
-                        <span className="text-gray-200 flex items-center gap-2">
+                        <span className="text-white flex items-center gap-2 font-semibold">
                           {isLatest && (
-                            <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                            <span className="inline-block w-2 h-2 bg-[#34d399] rounded-full animate-pulse shadow-sm" />
                           )}
                           {bid.teamName}
                         </span>
-                        <span className="text-yellow-300 font-semibold flex items-baseline gap-1">
+                        <span className="text-[#34d399] font-bold flex items-baseline gap-1">
                           <span>{bid.bidAmount}</span>
                           <span className="text-[10px] font-bold tracking-wide opacity-80">
                             Pts
