@@ -26,6 +26,8 @@ const envOrigins = process.env.CORS_ORIGIN
   : [];
 
 const productionOrigins = [
+  'https://dgplauction.online',
+  'https://www.dgplauction.online',
   'https://dgpl-auction.tech',
   'https://www.dgpl-auction.tech',
   'https://api.dgpl-auction.tech',
