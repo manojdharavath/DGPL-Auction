@@ -14,6 +14,7 @@ import AdminPage from "./pages/AdminPage";
 import PlayerProfilePage from "./pages/PlayerProfilePage";
 import { useSocket } from "./context/useSocket";
 import { useAuth } from "./context/authContextCore";
+import { API_URL } from "./config";
 
 function App() {
   const { isAuthenticated, user } = useAuth();
@@ -201,7 +202,7 @@ function App() {
     const loadCurrent = async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/v1/auction/current`
+          `${API_URL}/api/v1/auction/current`
         );
         if (!res.ok) return;
         const data = await res.json();
@@ -228,7 +229,7 @@ function App() {
     let abort = false;
     const fetchTeams = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/teams`);
+        const res = await fetch(`${API_URL}/api/v1/teams`);
         if (!res.ok) return;
         const data = await res.json();
         const fetched = data?.data?.docs || data?.data?.teams || [];

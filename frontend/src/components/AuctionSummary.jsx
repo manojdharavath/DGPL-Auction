@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useAuth } from "../context/authContextCore";
+import { API_URL } from "../config";
 import SummarySkeleton from "./SummarySkeleton";
 import SummaryFilter from "./SummaryFilter";
 import RecentSoldView from "./RecentSoldView";
@@ -30,7 +31,7 @@ const AuctionSummary = () => {
         const headers = token
           ? { Authorization: `Bearer ${token}` }
           : undefined;
-        const base = import.meta.env.VITE_API_URL;
+        const base = API_URL;
         const [teamsRes, playersRes, unsoldRes] = await Promise.all([
           fetch(`${base}/api/v1/teams`, { headers }),
           fetch(`${base}/api/v1/players`, { headers }),

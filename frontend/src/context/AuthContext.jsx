@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { AuthContext } from "./authContextCore";
+import { API_URL } from "../config";
 
 export default function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
@@ -18,7 +19,7 @@ export default function AuthProvider({ children }) {
   const login = useCallback(async (email, password) => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/users/login`,
+        `${API_URL}/api/v1/users/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -69,7 +70,7 @@ export default function AuthProvider({ children }) {
       if (!token || !user?._id) return;
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/v1/users/${user._id}`
+          `${API_URL}/api/v1/users/${user._id}`
         );
         if (res.status === 404) {
           console.warn(

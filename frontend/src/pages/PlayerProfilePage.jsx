@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { formatAcademicYear } from "../utils/formatters";
+import { API_URL } from "../config";
 
 const PlayerProfilePage = () => {
   const { playerId } = useParams();
@@ -15,7 +16,7 @@ const PlayerProfilePage = () => {
       setError(null);
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/v1/players/${playerId}`
+          `${API_URL}/api/v1/players/${playerId}`
         );
         if (!res.ok) throw new Error("Failed to load player");
         const data = await res.json();

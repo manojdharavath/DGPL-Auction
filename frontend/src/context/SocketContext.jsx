@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { io } from "socket.io-client";
 import { useAuth } from "./authContextCore";
+import { API_URL } from "../config";
 
 const SocketContext = createContext({ socket: null, isConnected: false });
 
@@ -40,7 +41,7 @@ const SocketProvider = ({ children }) => {
     };
     if (token) options.auth = { token };
 
-    const socket = io(import.meta.env.VITE_API_URL, options);
+    const socket = io(API_URL, options);
     socketRef.current = socket;
     setSocketInstance(socket); // trigger context update immediately
     console.log("[SocketProvider] Created socket instance");

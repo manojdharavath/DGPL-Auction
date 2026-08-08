@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/authContextCore";
+import { API_URL } from "../config";
 import YearSelector from "../components/admin/YearSelector";
 import PlayerTable from "../components/admin/PlayerTable";
 import { useSocket } from "../context/useSocket";
@@ -34,7 +35,7 @@ export default function AdminPage() {
       try {
         // Fetch all players for the year (exclude sold later client-side)
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/v1/players?year=${selectedYear}`,
+          `${API_URL}/api/v1/players?year=${selectedYear}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -155,7 +156,7 @@ export default function AdminPage() {
     if (selectedYear == null) return;
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/players?year=${selectedYear}`,
+        `${API_URL}/api/v1/players?year=${selectedYear}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -181,7 +182,7 @@ export default function AdminPage() {
     setActionLoadingId(playerId);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/auction/start`,
+        `${API_URL}/api/v1/auction/start`,
         {
           method: "POST",
           headers: {
@@ -228,7 +229,7 @@ export default function AdminPage() {
     setAuctionMessage(null);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/auction/sell`,
+        `${API_URL}/api/v1/auction/sell`,
         {
           method: "POST",
           headers: {
@@ -269,7 +270,7 @@ export default function AdminPage() {
     setAuctionMessage(null);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/auction/unsold`,
+        `${API_URL}/api/v1/auction/unsold`,
         {
           method: "POST",
           headers: {
