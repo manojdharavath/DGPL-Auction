@@ -20,19 +20,22 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS: allow production domains and Vercel preview; include localhost in development
+// CORS: allow production domains, GitHub Pages, and origins specified via environment variable
+const envOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
+  : [];
+
 const productionOrigins = [
   'https://dgpl-auction.tech',
   'https://www.dgpl-auction.tech',
   'https://api.dgpl-auction.tech',
-  // Example preview URL; adjust the subpath to your actual Vercel preview domain as needed
   'https://dgpl-auction-dmajgf0e7-vvc723s-projects.vercel.app',
+  ...envOrigins,
 ];
 // Include common localhost ports plus explicit LAN development host (mobile testing)
 const devOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  // Add your machine's LAN IP running the Vite dev server so phones on same network can access
   'http://192.168.137.1:5173',
 ];
 const allowedOrigins =
@@ -43,8 +46,12 @@ const allowedOrigins =
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow non-browser requests (no origin) and all allowed origins
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow non-browser requests (no origin), configured allowed origins, or GitHub Pages subdomains
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        (origin && origin.endsWith('.github.io'))
+      ) {
         return callback(null, true);
       }
       return callback(new Error('Not allowed by CORS')); // will be handled by global error handler
