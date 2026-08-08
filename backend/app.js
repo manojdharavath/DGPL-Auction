@@ -108,6 +108,14 @@ app.use('/api/v1/teams', teamRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auction', auctionRouter);
 
+// Root endpoint for simple status check
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'DGPL Auction API Server is running',
+  });
+});
+
 // Simple health endpoint for origin/proxy checks
 app.get('/healthz', (req, res) => {
   res.status(200).json({ status: 'ok' });
